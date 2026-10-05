@@ -1,0 +1,25 @@
+[Unit]
+Description=Linux Infrastructure Automation Lab - Service Watchdog Monitor
+Documentation=https://github.com/rafaeldnribeiro/linux-infra-automation-lab
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=infra-service
+Group=infra-service
+Environment="WATCHDOG_LOG_DIR=/var/log/infra-lab"
+Environment="AUTO_RESTART=false"
+ExecStart=/opt/infra-lab/scripts/service-watchdog.sh target-app.service
+StandardOutput=journal
+StandardError=journal
+
+# Hardening & Sandboxing Directives
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/infra-lab
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

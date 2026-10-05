@@ -6,7 +6,7 @@
 
 A real-world, operational Linux infrastructure laboratory designed for hands-on **Tier 2 (N2) Technical Support**, **Systems Administration**, **Network Diagnostics**, and **Service Automation**.
 
-This project documents the architectural foundations, operational runbooks, and automation scripts used to maintain high-availability Linux workstation and server nodes, featuring zero-ingress network topology, systemd supervision, automated health audits, and structured incident response.
+This project documents the architectural foundations, operational runbooks, and automation scripts used to maintain reliable operational Linux workstation and server nodes, featuring zero-ingress network topology, systemd supervision, automated health audits, and structured incident response.
 
 ---
 
@@ -64,7 +64,7 @@ For comprehensive details on architectural decisions and network design, see [do
 - **Service Management (systemd)**: Writing custom unit files, timers, cgroups resource controls, sandboxing directives, and system lifecycle inspection.
 - **Computer Networking (TCP/IP & DNS)**: Route inspection (`ip route`), socket diagnostics (`ss`), DNS resolution tracing, and port reachability analysis.
 - **ITIL Incident Management & Troubleshooting**: Structured incident investigation following *Symptom → Diagnosis → RCA → Remediation → Verification*.
-- **Infrastructure Automation (Bash & Python)**: Writing robust, production-grade scripts with strict error handling (`set -euo pipefail`), environment parameterization, and structured logging.
+- **Infrastructure Automation (Bash & Python)**: Writing robust, operational automation scripts with strict error handling (`set -euo pipefail`), environment parameterization, and structured logging.
 - **Security Hardening**: Implementation of the Principle of Least Privilege (PoLP), zero-trust private overlays, non-root daemons, and SSH hardening.
 
 ---
@@ -135,7 +135,7 @@ Validates Layer 3 reachability and Layer 7 DNS lookup without hardcoded internal
   ```
 
 ### 3. Service Watchdog & Monitor (`scripts/service-watchdog.sh`)
-Supervises background service health, writes immutable UTC audit trails, and supports guarded auto-recovery.
+Supervises background service health, writes UTC timestamped audit logs, and supports guarded auto-recovery.
 - **Features**: Prevents dangerous restart loops by default; configurable log path; clean exit codes for integration into monitoring pipelines.
 - **Execution**:
   ```bash

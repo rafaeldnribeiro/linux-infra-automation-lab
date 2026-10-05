@@ -1,0 +1,33 @@
+# System and OS files
+.DS_Store
+Thumbs.db
+
+# Logs and runtime artifacts
+*.log
+*.pid
+*.sock
+logs/
+run/
+
+# Secrets and environment variables
+.env
+.env.*
+*.pem
+*.key
+*.pub
+id_rsa
+id_ed25519
+secrets/
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Scratch & local temporary files
+scratch/
+tmp/
+*.tmp
